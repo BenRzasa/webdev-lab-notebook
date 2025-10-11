@@ -8,8 +8,96 @@
   </head>
   <body>
     <main>
-      <form action="/submit">
-        <!-- Add your code here -->
+      <form method="post" action="/submitquestion">
+        <h1>Ben's Form</h1>
+        <div>
+          <label for="name">Enter your Name:</label>
+          <input type="text" id="name" name="username" />
+        </div>
+        <br />
+        <div>
+          <label for="email">Email Address:</label>
+          <input type="email" id="email" name="email" />
+        </div>
+        <br />
+        <fieldset>
+          <legend>Which technology do you play games on?</legend>
+          <input type="radio" id="pc" name="tech" value="pc" />
+          <label for="pc">PC</label>
+          <input type="radio" id="console" name="tech" value="console" />
+          <label for="console">Console</label>
+          <input type="radio" id="mobile" name="tech" value="mobile" />
+          <label for="mobile">Mobile</label>
+          <input type="radio" id="other" name="tech" value="other" />
+          <label for="other">Other</label>
+        </fieldset>
+        <br />
+        <fieldset>
+          <legend>What games do you play?</legend>
+          <input type="checkbox" id="fps" name="game-type" value="fps" />
+          <label for="fps">First Person Shooter</label>
+          <input
+            type="checkbox"
+            id="html"
+            name="game-type"
+            value="platformer"
+          />
+          <label for="platformer">Platformer</label>
+          <input
+            type="checkbox"
+            id="open-world"
+            name="game-type"
+            value="open-world"
+          />
+          <label for="open-world">Open World</label>
+          <input type="checkbox" id="puzzle" name="game-type" value="puzzle" />
+          <label for="puzzle">Puzzle</label>
+          <input
+            type="checkbox"
+            id="adventure"
+            name="game-type"
+            value="adventure"
+          />
+          <label for="js">Adventure</label>
+          <input
+            type="checkbox"
+            id="metroidvania"
+            name="game-type"
+            value="metroidvania"
+          />
+          <label for="metroidvania">Metroidvania</label>
+        </fieldset>
+        <br />
+        <div>
+          <label for="assignments"
+            >What type of game is currently your favorite?</label
+          >
+          <select id="assignments">
+            <option value="">Select One:</option>
+            <option value="fps">First Person Shooter</option>
+            <option value="platformer">Platformer</option>
+            <option value="open-world">Open World</option>
+            <option value="puzzle">Puzzle</option>
+            <option value="adventure">Adventure</option>
+            <option value="metroidvania">Metroidvania</option>
+          </select>
+        </div>
+        <br />
+        <div>
+          <label for="question">Got any additional questions?</label>
+          <br />
+          <textarea name="textarea" id="question" rows="5" cols="80"></textarea>
+        </div>
+        <br />
+        <div>
+          <label for="date">Date:</label>
+          <input type="date" id="date" name="date" />
+        </div>
+        <br />
+        <div>
+          <input type="submit" value="Submit Form" />
+          <input type="reset" value="Reset Form" />
+        </div>
       </form>
     </main>
   </body>
