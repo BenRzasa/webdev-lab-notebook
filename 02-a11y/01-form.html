@@ -3,26 +3,55 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Form modified for accessibility testing!">
     <title>01 - Form</title>
-    <link rel="stylesheet" href="../_styles/styles.css" />
+    <!-- Removed unnecessary stylesheet call as it was causing browser errors (96 -> 100 in Lighthouse) -->
+    <!-- <link rel="stylesheet" href="../_styles/styles.css" /> -->
+     <!-- Added preconnect call to speed up loading - recommended by Lighthouse tab -->
+    <link rel="preconnect" href="http://127.0.0.1:5500/01-form.html" />
   </head>
-  <body>
+  <!-- Body - adjusted font size to be larger and more accessible - recommended by Lighthouse Audit -->
+  <body style="font-size: 24px">
     <h1>01 - Form</h1>
-    <form action="/submit">
-      <span>Name</span>
-      <input type="text" />
-      <br /><br />
-      <label>
-        Email
-        <input type="text" />
-      </label>
-      <br /><br />
-      <span>Favorite Character</span>
-      <div><input type="radio" id="spongebob" />Spongebob</div>
-      <div><input type="radio" id="patrick" />Patrick</div>
-      <div><input type="radio" id="sandy" />Sandy</div>
-      <br />
-      <button>Submit</button>
+
+    <form action="/submit" method="post">
+      <!-- Name field - added a label and correct type checking & id -->
+      <div class="form-group">
+        <label for="name">
+          Name <span class="required"></span>
+        </label>
+        <input type="text" id="name" name="name" required aria-required="true">
+      </div>
+
+      <!-- Email field - fixed to verify input type correctly -->
+      <div class="form-group">
+        <label for="email">
+          Email <span class="required"></span>
+        </label>
+        <input type="email" id="email" name="email" required aria-required="true">
+      </div>
+
+      <!-- Grouped the radio buttons together and added signifiers for each one -->
+      <div class="form-group">
+        <span id="character-label">Favorite Character <span class="required"></span></span>
+        <div class="radio-group" role="radiogroup" aria-label="character-label">
+          <div class="radio-option">
+            <input type="radio" id="spongebob" name="favorite-character" value="spongebob" required>
+            <label for="spongebob">Spongebob</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="patrick" name="favorite-character" value="patrick">
+            <label for="patrick">Patrick</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="sandy" name="favorite-character" value="sandy">
+            <label for="sandy">Sandy</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit button with specific type -->
+      <button type="submit">Submit</button>
     </form>
   </body>
 </html>
