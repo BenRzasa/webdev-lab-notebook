@@ -1,6 +1,61 @@
-@media (min-width: 1024px) {
+:root {
+  --green: #006500;
+  --white: #ffffff;
+  --yellow: #fda800;
+  --purple: #810082;
+  --black: #000000;
+  font-family: Arial;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+section[class="main"] {
+  padding-left: 8px;
+}
+
+header {
+  display: flex;
+  left: 0; top: 0;
+  width: 100%;
+  background: var(--black);
+}
+
+ul {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  gap: 20px;
+  a {
+    color: var(--white);
+    text-decoration: none;
+  }
+}
+
+@media (min-width: 768px) {
   body {
     background: var(--green);
     color: var(--white);
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    background: var(--yellow);
+    color: var(--black);
+  }
+}
+
+@media (max-width: 512px) {
+  body {
+    background: var(--purple);
+    color: var(--white);
+  }
+
+  ul {
+    flex-direction: column;
   }
 }
