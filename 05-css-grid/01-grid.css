@@ -1,17 +1,83 @@
 .grid-container {
-  background-color: rgb(190, 190, 231);
+    background-color: rgb(190, 190, 231);
+    width: 500px;
+    height: 300px;
+    display: grid;
+    gap: 5px;
+    padding: 5px;
+    align-content: flex-start;
+}
+
+.grid-item {
+    background-color: purple;
+    color: white;
+    text-align: center;
+    width: 100%;
+    min-height: 40px;
+    font-size: 30px;
 }
 
 /* Grid Container 1 */
+.grid-container-1 {
+    grid-template-columns: 60px repeat(2, 2fr);
+}
 
 /* Grid Container 2 */
-
-/* use height: 400px; on the container */
+.grid-container-2 {
+    grid-template-columns: 80px repeat(1, 2fr) repeat(2, 80px);
+    grid-template-rows: 40px repeat(1, 3fr);
+}
 
 /* Grid Container 3 */
-
-/* use height: 400px; on the container */
+.grid-container-3 {
+    grid-template-columns: 60px repeat(2, 2fr);
+    grid-template-rows: 40px repeat(2, 2fr);
+    :last-child {
+        grid-column-start: 2;
+        grid-column-end: 4;
+    }
+}
 
 /* Grid Container 4 */
+.grid-container-4 {
+    grid-template-columns: 100px repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    :nth-child(1) {
+        color: red;
+        grid-column-start: 0;
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
 
-/* use height: 600px; on the container */
+    :nth-child(2) {
+        color: orange;
+        grid-column-start: 2;
+        grid-column-end: 4;
+    }
+
+    :nth-child(3) {
+        color: yellow;
+        grid-column-start: 2;
+        grid-column-end: 4;
+    }
+
+    :nth-child(5) {
+        grid-column-start: 2;
+        grid-column-end: 4;
+    }
+
+    :nth-child(6) {
+        color: blue;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 4;
+        grid-row-end: 5;
+    }
+    
+    :nth-child(8) {
+        color: green;
+        grid-column-start: 2;
+        grid-column-end: 4;
+    }
+}
+
