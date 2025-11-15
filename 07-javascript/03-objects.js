@@ -1,22 +1,27 @@
 let result = {};
 
 const insertItem = (key, value) => {
-  // insertItem the property with key and value into result
-  return key;
+    // insert the property with key and value into result
+    result[key] = value;
+    return key;
 };
 
 const deleteItem = (key) => {
-  // remove the property with key from result
-  return key;
+    // remove the property with key from result
+    delete result[key];
+    return key;
 };
 
 const lookupItem = (key) => {
-  // return the value from result that is associated with key
-  return key;
+    // return the value from result that is associated with key
+    const found = result[key];
+    if(found) return result[key];
+    else return "Item does not exist"
 };
 
 const printItems = () => {
-  // return a string of the concatenated key in result, separated by commas
+    // return a string of the concatenated keys in result, separated by commas
+    return Object.keys(result).join(', ').toString();
 };
 
 insertItem('hello', 'world');

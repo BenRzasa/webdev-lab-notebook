@@ -1,10 +1,16 @@
 const formatItems = (input) => {
-  // return a string of the concatenated numbers, separated by commas and with three digits after the decimal point
+    // return a string of the concatenated numbers, separated by commas and with three digits after 
+    // the decimal point
+   
+    // 3 decimals
+    const numArrayThreeDecimals = input.map(x => x.toFixed(3));
+    // convert to string
+    const decimalArrayToString = numArrayThreeDecimals.toString();
 
-  // for reference, see the MDN Number page:
-  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
+    // for reference, see the MDN Number page:
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
 
-  return input;
+    return decimalArrayToString;
 };
 
 console.log(formatItems([1, 4, 17, 26, 41]));
