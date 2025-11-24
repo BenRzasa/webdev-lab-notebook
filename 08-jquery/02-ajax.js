@@ -1,3 +1,4 @@
+/*
 const url = 'https://anapioficeandfire.com/api/books/';
 
 const app = document.querySelector('#books');
@@ -46,6 +47,54 @@ const fetchData = (url) => {
     })
     .finally(() => {
       app.removeChild(loading);
+    });
+};
+
+fetchData(url);
+*/
+
+// jQuery rewrite
+
+const url = 'https://anapioficeandfire.com/api/books/';
+
+const app = $('#books');
+app.css('paddingLeft', 0);
+const loading = $('#loading');
+
+const addBookToDOM = (item) => {
+    let element = $('<div>').css({
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        marginTop: '20px'
+    });
+
+    let title = $('<h4>').text(item.name);
+    let author = $('<p>').css('fontWeight', 'bold').text(`by ${item.authors[0]}`);
+    let published = $('<p>').text(item.released.substr(0, 4));
+    let pages = $('<p>').text(`${item.numberOfPages} pages`);
+
+    element.append(title, author, published, pages);
+    app.append(element);
+};
+
+const fetchData = (url) => {
+    $.ajax({
+        url: url,
+        type: 'GET',
+        success: (data) => {
+            data.forEach((item) => {
+                addBookToDOM(item);
+            });
+        },
+        error: (error) => {
+            console.log(error);
+            let li = $('<li>').text('An error occured. Please try again.');
+            app.append(li);
+        },
+        complete: () => {
+            loading.remove();
+        }
     });
 };
 
